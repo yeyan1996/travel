@@ -3,8 +3,8 @@
 <swiper :options="swiperOption">
 <!-- slides -->
 
-<swiper-slide   v-for="item in swiperlist" :key="item.id">         <!--循环语句写在swiper-slide上-->
-<img class="swiper-img" :src="item.urlimg"  >
+<swiper-slide   v-for="item in swiperList" :key="item.id">
+<img class="swiper-img" :src="item.imgUrl"  >
 </swiper-slide>
 <div class="swiper-pagination"  slot="pagination"></div>
 </swiper>
@@ -14,20 +14,15 @@
 <script>
 export default {
 name: 'HomeSwiper',
+props:{swiperList:Array},
 data () {
 return {
-swiperlist: [{
-id: '001',
-urlimg: '//img1.qunarzz.com/vc/c1/c3/4f/7cd9da5aadf1c5b15cdbe11424.jpg'
-}, {
-id: '002',
-urlimg: '//img1.qunarzz.com/vc/18/ec/c3/f51767d45459eae72cf32d9b37.jpg'
-}],
 swiperOption: {
 pagination: {
-el: '.swiper-pagination'
+el: '.swiper-pagination'        //设置下方点状按钮
 },
-loop: true
+autoplay:true,               //设置自动播放
+loop: true                     //设置循环
 }
 }
 }
@@ -37,15 +32,15 @@ loop: true
 </script>
 <style lang="stylus"  scoped>
 .wrapper >>>.swiper-pagination-bullet-active
- background : white;
+ background : white
 .swiper-img
- width:100%;
+ width:100%
 .wrapper
  width:100%
- height:0;
- overflow:hidden;
- padding-bottom:30.39%;
- background :grey;
+ height:0
+ overflow:hidden
+ padding-bottom:30.39%
+ background :grey
 
 
 </style>

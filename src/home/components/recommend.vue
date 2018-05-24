@@ -3,11 +3,11 @@
 <ul class="top">热销推荐</ul>
 
 
-<li class="contain border" v-for="item in lists" :key="item.id">
-<img  class="img" :src="item.imgurl" >
+<li class="contain border" v-for="item in recommendList" :key="item.id" >
+<img  class="img" :src="item.imgUrl" >
 <div class="info">
 <p class="title">{{item.title}}</p>
-<p class="content">{{item.content}}</p>
+<p class="content">{{item.desc}}</p>
 <button class="btn">查看详情</button>
 </div>
 </li>
@@ -19,14 +19,10 @@
 <script>
     export default {
         name: "HomeRecommend",
+         props:{recommendList:Array},
     data (){
         return{
-        lists:[
-        {id:"001",imgurl:"https://userimg.qunarzz.com/imgs/201501/20/66I5P26rO5z69uk16480.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-        {id:"002",imgurl:"https://userimg.qunarzz.com/imgs/201501/20/66I5P26rO5z69uk16480.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-        {id:"003",imgurl:"https://userimg.qunarzz.com/imgs/201501/20/66I5P26rO5z69uk16480.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-        {id:"004",imgurl:"https://userimg.qunarzz.com/imgs/201501/20/66I5P26rO5z69uk16480.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-        ]
+
         }
     }
     }

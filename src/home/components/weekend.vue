@@ -3,11 +3,11 @@
 <ul class="top">周末去哪儿</ul>
 
 
-<li class="contain border" v-for="item in lists" :key="item.id">
-<img  class="img" :src="item.imgurl" >
+<li class="contain border" v-for="item in weekendList" :key="item.id">
+<img  class="img" :src="item.imgUrl" >
 <div class="info">
 <p class="title">{{item.title}}</p>
-<p class="content">{{item.content}}</p>
+<p class="content">{{item.desc}}</p>
 </div>
 </li>
 
@@ -18,12 +18,10 @@
 <script>
 export default {
 name: "HomeWeekend",
+props:{weekendList:Array},
 data (){
 return{
-lists:[
-{id:"001",imgurl:"https://imgs.qunarzz.com/p/tts8/1703/94/61eb7ce216efc702.jpg_r_390x260x90_d5dd6341.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-{id:"002",imgurl:"https://imgs.qunarzz.com/p/tts8/1703/94/61eb7ce216efc702.jpg_r_390x260x90_d5dd6341.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-]
+
 }
 }
 }
