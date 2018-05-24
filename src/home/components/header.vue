@@ -2,7 +2,9 @@
   <div class="header">
 <div class="header-left"><div class="iconfont">&#xe660;</div></div>
 <div class="header-input"><span class="iconfont ">&#xe651;</span>输入城市/景点/游玩主题</div>
+<router-link to="/city">
 <div class="header-right">{{city}}<span class="iconfont right-icon">&#xe65e;</span></div>
+</router-link>
   </div>
 </template>
 
@@ -17,7 +19,7 @@
 <style lang="stylus" scoped>
 @import "~styles/varibles.styl"
 .header
-  line-height: .86rem;
+  line-height: $headerheight;
   display:flex;
   background: $bgColor;
   color:white;
@@ -44,7 +46,7 @@
  width: 1.24rem;
  float:right;
  text-align:center;
-
+ color:white
 
 .right-icon
  margin-left:.16rem;
