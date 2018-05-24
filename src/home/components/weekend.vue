@@ -23,8 +23,6 @@ return{
 lists:[
 {id:"001",imgurl:"https://imgs.qunarzz.com/p/tts8/1703/94/61eb7ce216efc702.jpg_r_390x260x90_d5dd6341.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
 {id:"002",imgurl:"https://imgs.qunarzz.com/p/tts8/1703/94/61eb7ce216efc702.jpg_r_390x260x90_d5dd6341.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-{id:"003",imgurl:"https://imgs.qunarzz.com/p/tts8/1703/94/61eb7ce216efc702.jpg_r_390x260x90_d5dd6341.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
-{id:"004",imgurl:"https://imgs.qunarzz.com/p/tts8/1703/94/61eb7ce216efc702.jpg_r_390x260x90_d5dd6341.jpg",title:"大连圣亚海洋世界",content:"浪漫大连首站，浪漫的海洋主题公园"},
 ]
 }
 }
