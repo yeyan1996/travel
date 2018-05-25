@@ -2,19 +2,43 @@
 <div>
 <cityHeader></cityHeader>
 <citySearch></citySearch>
+<cityList :hotCities="hotCities" :cities="cities"></cityList>
+<cityAlphabet :cities="cities"></cityAlphabet>
 </div>
 </template>
 
 <script>
+import axios from "axios"
 import cityHeader from "./components/header.vue"
 import citySearch from "./components/search.vue"
-
+import cityList from "./components/list.vue"
+import cityAlphabet from "./components/Alphabet.vue"
 export default{
 name:"city",
+data (){
+return{
+cities:{},
+hotCities:[]
+}
+},
 components:{
 cityHeader,
-citySearch
+citySearch,
+cityList,
+cityAlphabet
+},
+mounted (){
+this.getinfo()
+},
+methods:{
+getinfo (){
+axios.get("/api/city.json")
+.then(response=>{
+this.hotCities=response.data.data.hotCities
+this.cities=response.data.data.cities
+})
 }
+},
 }
 </script>
 
