@@ -2,8 +2,8 @@
 <div>
 <cityHeader></cityHeader>
 <citySearch></citySearch>
-<cityList :hotCities="hotCities" :cities="cities"></cityList>
-<cityAlphabet :cities="cities"></cityAlphabet>
+<cityList :hotCities="hotCities" :cities="cities" :letter="letter"></cityList>
+<cityAlphabet :cities="cities" @change="handlechange"></cityAlphabet>
 </div>
 </template>
 
@@ -18,7 +18,8 @@ name:"city",
 data (){
 return{
 cities:{},
-hotCities:[]
+hotCities:[],
+letter:""
 }
 },
 components:{
@@ -31,6 +32,9 @@ mounted (){
 this.getinfo()
 },
 methods:{
+handlechange (value){
+this.letter=value;
+},
 getinfo (){
 axios.get("/api/city.json")
 .then(response=>{

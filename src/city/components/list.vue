@@ -22,9 +22,9 @@
 </ul>
 
 
-<ul v-for="(item,key) in cities" :key="key">
-<li class="bg">{{key}}</li>
-<li class="bd" v-for="inneritem in item" :key="inneritem.id">{{inneritem.name}}</li>
+<ul v-for="(item,key) in cities" :key="key" >
+<li class="bg" :ref="key">{{key}}</li>
+<li class="bd" v-for="inneritem in item" :key="inneritem.id" >{{inneritem.name}}</li>
 
 </ul>
 
@@ -40,13 +40,24 @@ import BScroll from 'better-scroll'            //使用本插件需要让页面�
 export default{
 name:"cityList",
 props:{
+letter:String,
 hotCities:Array,
 cities:Object
 },
 mounted () {
-  const scroll= new BScroll(this.$refs.list)
+  this.scroll= new BScroll(this.$refs.list)
+},
+watch:{
+letter () {
+if (this.letter) {
+// console.log(this.$refs[this.letter][0])
+const element = this.$refs[this.letter][0];
+this.scroll.scrollToElement(element)
 }
 }
+  }
+}
+
 </script>
 <style lang="stylus" scoped>
 .bg{
