@@ -13,36 +13,30 @@
 </swiper-slide>
 </swiper>
 
-
-
-
-
 </div>
-
-
 
 </template>
 
 <script>
 export default{
- name:"HomeIcon",
-props:{iconList:Array},
-data (){
- return{
+  name: 'HomeIcon',
+  props: {iconList: Array},
+  data () {
+    return {
 
- }
-},
-computed:{
- pages:function(){
- const pages=[];
- this.iconList.forEach(function(item,index){
- const page= Math.floor(index / 8);
- if(!pages[page]){pages[page]=[]}
- pages[page].push(item)
- })
- return pages
- }
-}
+    }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.iconList.forEach(function (item, index) {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) { pages[page] = [] }
+        pages[page].push(item)
+      })
+      return pages
+    }
+  }
 }
 </script>
 

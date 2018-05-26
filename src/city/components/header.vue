@@ -8,7 +8,7 @@
 </template>
 <script>
 export default{
-name:"cityHeader"
+  name: 'cityHeader'
 }
 </script>
 

@@ -2,7 +2,6 @@
 <div >
 <ul class="top">周末去哪儿</ul>
 
-
 <li class="contain border" v-for="item in weekendList" :key="item.id">
 <img  class="img" :src="item.imgUrl" >
 <div class="info">
@@ -11,19 +10,18 @@
 </div>
 </li>
 
-
 </div>
 </template>
 
 <script>
 export default {
-name: "HomeWeekend",
-props:{weekendList:Array},
-data (){
-return{
+  name: 'HomeWeekend',
+  props: {weekendList: Array},
+  data () {
+    return {
 
-}
-}
+    }
+  }
 }
 </script>
 

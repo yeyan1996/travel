@@ -2,7 +2,6 @@
 <div >
 <ul class="top">热销推荐</ul>
 
-
 <li class="contain border" v-for="item in recommendList" :key="item.id" >
 <img  class="img" :src="item.imgUrl" >
 <div class="info">
@@ -12,20 +11,19 @@
 </div>
 </li>
 
-
 </div>
 </template>
 
 <script>
-    export default {
-        name: "HomeRecommend",
-         props:{recommendList:Array},
-    data (){
-        return{
+export default {
+  name: 'HomeRecommend',
+  props: {recommendList: Array},
+  data () {
+    return {
 
-        }
     }
-    }
+  }
+}
 </script>
 
 <style lang="stylus" scoped>

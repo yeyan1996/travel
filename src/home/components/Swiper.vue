@@ -13,19 +13,19 @@
 
 <script>
 export default {
-name: 'HomeSwiper',
-props:{swiperList:Array},
-data () {
-return {
-swiperOption: {
-pagination: {
-el: '.swiper-pagination'        //设置下方点状按钮
-},
-autoplay:true,               //设置自动播放
-loop: true                     //设置循环
-}
-}
-}
+  name: 'HomeSwiper',
+  props: {swiperList: Array},
+  data () {
+    return {
+      swiperOption: {
+        pagination: {
+          el: '.swiper-pagination' // 设置下方点状按钮
+        },
+        autoplay: true, // 设置自动播放
+        loop: true // 设置循环
+      }
+    }
+  }
 
 }
 
@@ -41,6 +41,5 @@ loop: true                     //设置循环
  overflow:hidden
  padding-bottom:30.39%
  background :grey
-
 
 </style>

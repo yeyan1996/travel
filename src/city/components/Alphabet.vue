@@ -5,58 +5,60 @@
 
 </ul>
 
-
-
 </div>
 
 </template>
 <script>
-export default{
+export default {
+  name: 'cityAlphabet',
+  data () {
+    return {
+      touchStatus: false,
+      startY: 0,
+      Timer: null
 
-name:"cityAlphabet",
-data (){
-return{
-touchStatus:false,
-  startY:0,
-  Timer:null
-
-}
-},
-  updated (){                    //当ajax的数据被渲染之后执行updated的函数
-  this.startY=this.$refs["A"][0].offsetTop
+    }
   },
-props:{cities:Object},
-computed:{
-letters (){
-const letters=[];
-for(let i in this.cities){letters.push(i)}
-return letters
-}
-},
-methods:{
-handleclick (e){
-this.letter=e.target.innerText;
-this.$emit("change",this.letter)
-},
-touchstart (){
-this.touchStatus=true
-},
-touchmove (e){
-if(this.touchStatus){
-  if(this.Timer){clearTimeout(this.Timer)}
-  this.Timer=setTimeout(()=>{
-const touchY=e.touches[0].clientY-86-this.startY;
-   const index=  Math.floor(touchY/20);
-  if(index>= 0&&index<= this.letters.length){
-    this.$emit("change",this.letters[index])
-  }},16)
-// console.log(this.$refs[][0].offsetTop)
-}
-},
-touchend (){
-this.touchStatus=false
-},
-}
+  updated () { // 当ajax的数据被渲染之后执行updated的函数
+    this.startY = this.$refs['A'][0].offsetTop
+  },
+  props: {cities: Object},
+  computed: {
+    letters () {
+      const letters = []
+      for (let i in this.cities) {
+        letters.push(i)
+      }
+      return letters
+    }
+  },
+  methods: {
+    handleclick (e) {
+      this.letter = e.target.innerText
+      this.$emit('change', this.letter)
+    },
+    touchstart () {
+      this.touchStatus = true
+    },
+    touchmove (e) {
+      if (this.touchStatus) {
+        if (this.Timer) {
+          clearTimeout(this.Timer)
+        }
+        this.Timer = setTimeout(() => {
+          const touchY = e.touches[0].clientY - 86 - this.startY
+          const index = Math.floor(touchY / 20)
+          if (index >= 0 && index <= this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 16)
+        // console.log(this.$refs[][0].offsetTop)
+      }
+    },
+    touchend () {
+      this.touchStatus = false
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>

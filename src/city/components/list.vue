@@ -11,8 +11,6 @@
 <div class="clear"></div>
 </div>
 
-
-
 <div class="bg">
 热门城市
 </div>
@@ -21,40 +19,35 @@
 <div class="clear"></div>
 </ul>
 
-
 <ul v-for="(item,key) in cities" :key="key" >
 <li class="bg" :ref="key">{{key}}</li>
 <li class="bd" v-for="inneritem in item" :key="inneritem.id" >{{inneritem.name}}</li>
 
 </ul>
 
-
-
-
-
 </div>
 </div>
 </template>
 <script>
-import BScroll from 'better-scroll'            //使用本插件需要让页面锁死
+import BScroll from 'better-scroll' // 使用本插件需要让页面锁死
 export default{
-name:"cityList",
-props:{
-letter:String,
-hotCities:Array,
-cities:Object
-},
-mounted () {
-  this.scroll= new BScroll(this.$refs.list)
-},
-watch:{
-letter () {
-if (this.letter) {
-// console.log(this.$refs[this.letter][0])
-const element = this.$refs[this.letter][0];
-this.scroll.scrollToElement(element)
-}
-}
+  name: 'cityList',
+  props: {
+    letter: String,
+    hotCities: Array,
+    cities: Object
+  },
+  mounted () {
+    this.scroll = new BScroll(this.$refs.list)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        // console.log(this.$refs[this.letter][0])
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 

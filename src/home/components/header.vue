@@ -9,10 +9,10 @@
 </template>
 
 <script>
- export default {
-    name: 'HomeHeader',
-   props:{city:String}
-  }
+export default {
+  name: 'HomeHeader',
+  props: {city: String}
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -24,12 +24,10 @@
   background: $bgColor;
   color:white;
 
-
 .header-left
  width: .64rem;
  float: left;
  text-align: center;
-
 
 .header-input
  flex:1;
@@ -40,7 +38,6 @@
  border-radius:.1rem;
  line-height:.5rem;
  padding-left:.2rem;
-
 
 .header-right
  width: 1.24rem;
