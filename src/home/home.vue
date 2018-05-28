@@ -28,7 +28,7 @@ export default {
     }
   },
   components: {
-    HomeHeader,
+    HomeHeader, // 等同于HomeHeader(组建的标签名) : HomeHeader (引入的组件名)
     HomeSwiper,
     HomeIcon,
     HomeRecommend,
