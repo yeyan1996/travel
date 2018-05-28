@@ -3,7 +3,7 @@
 <input class="searchinput"  v-model="msg" placeholder="请输入城市" />
   <div  class="resultlist" ref="search" v-show="msg">
   <ul>
-  <li v-for=" item in list" class="searchinfo border" :key="item.id">{{item.name}}</li>
+  <li v-for=" item in list" class="searchinfo border" :key="item.id" @click="handleCityChange(item.name)">{{item.name}}</li>
     <li class="searchinfo border" v-show="hasNoData">没有找到匹配数据</li>
   </ul>
   </div>
@@ -11,6 +11,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll'
+import {mapActions} from 'vuex'
 export default {
   name: 'citySearch',
   props: {cities: Object},
@@ -22,12 +23,21 @@ export default {
     }
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.search)
+    this.scroll = new BScroll(this.$refs.search, {
+      click: true // better-scroll 默认会阻止浏览器的原生 click 事件。当设置为 true，better-scroll 会派发一个 click 事件
+    })
   },
   computed: {
     hasNoData () {
       return !this.list.length
     }
+  },
+  methods: {
+    handleCityChange (city) {
+      this.handlechange(city)
+      this.$router.push('/')
+    },
+    ...mapActions(['handlechange'])
   },
   watch: {
     msg () {

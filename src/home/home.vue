@@ -1,6 +1,6 @@
 <template>
 <div>
-<HomeHeader :city="city"></HomeHeader>
+<HomeHeader ></HomeHeader>
 <HomeSwiper :swiperList="swiperList"></HomeSwiper>
 <HomeIcon :iconList="iconList"></HomeIcon>
 <HomeRecommend :recommendList="recommendList"></HomeRecommend>
@@ -20,7 +20,6 @@ export default {
   name: 'home',
   data () {
     return {
-      city: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -36,19 +35,8 @@ export default {
   },
   mounted () {
     this.getinfo()
-    this.getCityName()
   },
   methods: {
-    getCityName () {
-      axios.get('/api/city.json') // 在comfig/index.js中使用代理功能指向本地的static路径
-        .then(response => {
-          this.city = response.data.data.hotCities[0].name
-        }
-        )
-        .catch(function (error) {
-          console.log(error)
-        })
-    },
     getinfo () {
       axios.get('/api/index.json')
         .then(response => {

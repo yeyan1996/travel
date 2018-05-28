@@ -7,21 +7,21 @@
 </div>
 
 <div class="container">
-<div class="button">北京</div>
+<div class="button">{{this.city}}</div>
 <div class="clear"></div>
 </div>
 
-<div class="bg">
+<div class="bg" >
 热门城市
 </div>
 <ul class="container">
-<li class="button" v-for="item in hotCities" :key="item.id">{{item.name}}</li>
+<li class="button" v-for="item in hotCities" :key="item.id"   @click="handleCityClick(item.name)">{{item.name}}</li>
 <div class="clear"></div>
 </ul>
 
 <ul v-for="(item,key) in cities" :key="key" >
 <li class="bg" :ref="key">{{key}}</li>
-<li class="bd" v-for="inneritem in item" :key="inneritem.id" >{{inneritem.name}}</li>
+<li class="bd" v-for="inneritem in item" :key="inneritem.id"  @click="handleCityClick(inneritem.name)" >{{inneritem.name}}</li>
 
 </ul>
 
@@ -30,6 +30,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll' // 使用本插件需要让页面锁死
+import {mapState, mapMutations} from 'vuex'
 export default{
   name: 'cityList',
   props: {
@@ -38,12 +39,24 @@ export default{
     cities: Object
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.list)
+    this.scroll = new BScroll(this.$refs.list, {
+      click: true // better-scroll 默认会阻止浏览器的原生 click 事件。当设置为 true，better-scroll 会派发一个 click 事件
+    })
+  },
+  computed: {
+    ...mapState(['city'])
+  },
+  methods: {
+    handleCityClick (city) {
+      this.handlechange(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['handlechange'])
   },
   watch: {
     letter () {
       if (this.letter) {
-        // console.log(this.$refs[this.letter][0])
+        // console.log(this.$refs[th is.letter][0])
         const element = this.$refs[this.letter][0]
         this.scroll.scrollToElement(element)
       }
