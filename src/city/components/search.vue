@@ -10,8 +10,8 @@
 </div>
 </template>
 <script>
-import BScroll from 'better-scroll'
 import {mapActions} from 'vuex'
+import BScroll from 'better-scroll'
 export default {
   name: 'citySearch',
   props: {cities: Object},

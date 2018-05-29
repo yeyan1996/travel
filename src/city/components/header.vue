@@ -28,6 +28,5 @@ export default{
   left: 0;
   color: white;
   width: .64rem;
-
   }
 </style>
