@@ -28,6 +28,9 @@ export default {
   activated () {
     window.addEventListener('scroll', this.getScroll)
   },
+  deactivated () {
+    window.removeEventListener('scroll', this.getScroll)
+  },
   methods: {
     getScroll () {
       let top = document.documentElement.scrollTop
