@@ -37,7 +37,7 @@ export default {
       if (top > 0 && top < 100) {
         this.showbtn = false
         this.showOpacity.opacity = top / 100
-      } else if (top > 100) {
+      } else if (top >= 100) {
         this.showbtn = false
         this.showOpacity.opacity = 1
       } else {
@@ -67,6 +67,7 @@ export default {
     color:white;
   }
   .header{
+    z-index:2;
     top:0;
     width:100%;
     position:fixed;

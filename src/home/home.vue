@@ -46,12 +46,18 @@ export default {
   },
   methods: {
     getinfo () {
-      axios.get('/api/index.json?city=' + this.city)
+      axios.get('/api/index.json', {
+        params: {
+          city: this.city
+        }
+      })
         .then(response => {
-          this.swiperList = response.data.data.swiperList
-          this.iconList = response.data.data.iconList
-          this.recommendList = response.data.data.recommendList
-          this.weekendList = response.data.data.weekendList
+          if (response.data.ret && response.data.data) {
+            this.swiperList = response.data.data.swiperList
+            this.iconList = response.data.data.iconList
+            this.recommendList = response.data.data.recommendList
+            this.weekendList = response.data.data.weekendList
+          }
         }
         )
         .catch(function (error) {

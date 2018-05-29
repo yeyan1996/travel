@@ -38,8 +38,13 @@ export default{
     getinfo () {
       axios.get('/api/city.json')
         .then(response => {
-          this.hotCities = response.data.data.hotCities
-          this.cities = response.data.data.cities
+          if (response.data.ret && response.data.data) {
+            this.hotCities = response.data.data.hotCities
+            this.cities = response.data.data.cities
+          }
+        })
+        .catch(function (err) {
+          console.log(err)
         })
     }
   }
