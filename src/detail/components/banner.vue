@@ -8,12 +8,15 @@
       <div class="top-content">{{sightName}}</div>
       <div class="iconfont top-icon">&#xe648; {{bannerImgs.length}}</div>
     </div>
+    <fade>
     <gallary :gallaryImgs="bannerImgs" v-show="showGallary" @close="handleclose"></gallary>
+    </fade>
   </div>
 </template>
 
 <script>
 import gallary from 'common/gallary/gallary.vue'
+import fade from 'common/fade/fade.vue'
 export default {
   name: 'banner',
   props: {sightName: String, bannerImg: String, bannerImgs: Array},
@@ -23,7 +26,8 @@ export default {
     }
   },
   components: {
-    gallary
+    gallary,
+    fade
   },
   methods: {
     handleShowGallary () {
