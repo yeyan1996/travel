@@ -49,8 +49,8 @@ export default{
  padding-bottom: 50%
 .icon-img {
 position: relative;
-height: 100%;
-width:100%;
+height: 80%;
+width:80%;
 }
  .icon
   margin:.1rem
@@ -66,6 +66,9 @@ width:100%;
   .icon-contain-img
    box-sizing : border-box
    position :absolute
+   display:flex
+   align-items :center
+   justify-content :center
    width:100%
    height:75%
    padding:5%
@@ -77,5 +80,6 @@ width:100%;
    right:0
    bottom:0
    ellipsis()
+   font-size:.3rem;
 
 </style>

@@ -3,6 +3,7 @@
 <keep-alive exclude="detail">
     <router-view/>
 </keep-alive>
+
   </div>
 </template>
 
@@ -12,6 +13,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

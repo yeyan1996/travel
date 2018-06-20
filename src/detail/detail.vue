@@ -16,6 +16,7 @@ import list from './components/list'
 import axios from 'axios'
 export default{
   name: 'detail',
+  props: ['id', 'query'],
   data () {
     return {
       sightName: '',
@@ -29,14 +30,12 @@ export default{
     detailheader,
     list
   },
-  mounted () { // 这里本应该是actived，但是app.vue的根组件设置了exclude让本组件不设置keep-alive的缓存功能
-    this.getInfo()
-  },
+
   methods: {
     getInfo () {
       axios.get('/api/detail.json', {
         params: {
-          id: this.$route.params.id
+          id: this.id
         }
       })
         .then(response => {
@@ -51,8 +50,37 @@ export default{
           console.log(error)
         })
     }
-  }
+  },
+  mounted () {
+    console.log('mounted')
+    this.getInfo()
+  },
+  beforeUpdate () {
+    console.log('beforeUpdate')
+  },
+  activated () {
+    console.log('activated')
+  },
 
+  beforeRouteEnter (to, from, next) {
+    console.log('beforeRouteEnter')
+    // next(vm => {
+    //   vm.getInfo()
+    //   console.log('this id =', vm.id)
+    // })
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouteUpdate')
+    // this.getInfo()
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('beforeRouteLeave')
+    if (confirm('are you sure')) {
+      next()
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>
