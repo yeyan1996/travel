@@ -30,7 +30,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll' // 使用本插件需要让页面锁死
-import {mapState, mapMutations} from 'vuex'
+import {mapState, mapMutations, mapActions} from 'vuex'
 export default{
   name: 'cityList',
   props: {
@@ -48,10 +48,14 @@ export default{
   },
   methods: {
     handleCityClick (city) {
-      this.handlechange(city)
+      this.handlechangeAsync({
+        city: city,
+        time: 2000
+      })
       this.$router.push('/')
     },
-    ...mapMutations(['handlechange'])
+    ...mapMutations(['handlechange']),
+    ...mapActions(['handlechangeAsync'])
   },
   watch: {
     letter () {

@@ -26,6 +26,7 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
+    chunkFilename: '[name].js',
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
@@ -51,7 +52,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        options: {
+          plugins: ['syntax-dynamic-import']
+        },
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -1,9 +1,10 @@
 export default {
-  handlechange (state, city) {
-    state.city = city
+  handlechange (state, payload) {
+    state.city = payload.city
     try {
-      localStorage.city = city
+      localStorage.city = payload.city
     } catch (e) {
+      console.log('失败' + e)
     }
   }
 }

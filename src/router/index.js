@@ -12,16 +12,19 @@ export default new Router({
       path: '/',
       name: 'home',
       component: home
+      // component: () => import(/* webpackChunkName: "a" */ '@/home/home.vue')
     },
     {
       path: '/city',
       name: 'city',
       component: city
+      // component: () => import(/* webpackChunkName: "b" */ '@/city/city.vue')
     },
     {
       path: '/detail/:id',
       name: 'detail',
       component: detail
+      // component: () => import(/* webpackChunkName: "c" */ '@/detail/detail.vue')
     }
   ],
   scrollBehavior (to, from, savedPosition) {

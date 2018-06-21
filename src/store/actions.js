@@ -1,6 +1,9 @@
 export default {
-  handlechange (ctx, city) {
-    ctx.commit('handlechange', city)
+  handlechangeAsync (ctx, payload) {
+    setTimeout(() => {
+      ctx.commit('handlechange', payload)
+    }
+      , payload.time)
   }
 
 }

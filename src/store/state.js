@@ -5,5 +5,7 @@ try {
   }
 } catch (e) {}
 export default {
-  city: defaultCity
+  city: defaultCity,
+  firstname: '周',
+  lastname: '浩磊'
 }
