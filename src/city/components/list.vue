@@ -48,14 +48,14 @@ export default{
   },
   methods: {
     handleCityClick (city) {
-      this.handlechangeAsync({
+      this.changeAAsync({
         city: city,
         time: 2000
       })
       this.$router.push('/')
     },
     ...mapMutations(['handlechange']),
-    ...mapActions(['handlechangeAsync'])
+    ...mapActions(['changeAAsync'])
   },
   watch: {
     letter () {

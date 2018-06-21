@@ -3,7 +3,7 @@
 <div class="header-left"><div class="iconfont">&#xe660;</div></div>
 <div class="header-input"><span class="iconfont ">&#xe651;</span>输入城市/景点/游玩主题</div>
 <router-link to="/city">
-<div class="header-right">{{this.$store.state.city}}<span class="iconfont right-icon">&#xe65e;</span></div>
+<div class="header-right">{{this.fullname}}<span class="iconfont right-icon">&#xe65e;</span></div>
 </router-link>
   </div>
 </template>
@@ -13,7 +13,7 @@ import {mapState, mapGetters} from 'vuex'
 export default {
   name: 'HomeHeader',
   computed: {
-    ...mapState({currentCity: 'city'}),
+    ...mapState({cityA: (state) => state.a.city, cityB: (state) => state.b.city, city: (state) => state.city}),
     ...mapGetters(['fullname'])
   }
 }
